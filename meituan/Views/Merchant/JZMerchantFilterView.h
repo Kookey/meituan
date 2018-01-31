@@ -21,10 +21,10 @@
 
 @interface JZMerchantFilterView : UIView
 
-@property(nonatomic, strong) UITableView *tableViewOfGroup;
-@property(nonatomic, strong) UITableView *tableViewOfDetail;
+@property(strong, nonatomic) UITableView *tableViewOfGroup;
+@property(strong, nonatomic) UITableView *tableViewOfDetail;
 
-@property(nonatomic, assign) id<JZMerchantFilterDelegate> delegate;
+@property(weak, nonatomic) id<JZMerchantFilterDelegate> delegate;
 
 
 

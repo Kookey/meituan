@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 jinzelu. All rights reserved.
 //
 
-#import <MAMapKit/MAMapKit.h>
+#import "BMKPointAnnotation.h"
 #import "JZMAAroundModel.h"
 
-@interface JZMAAroundAnnotation : MAPointAnnotation
+@interface JZMAAroundAnnotation : BMKPointAnnotation
 
 @property(nonatomic, strong) JZMAAroundModel *jzmaaroundM;
 

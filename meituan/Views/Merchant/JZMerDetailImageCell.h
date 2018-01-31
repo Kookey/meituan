@@ -11,10 +11,10 @@
 
 @interface JZMerDetailImageCell : UITableViewCell
 
-@property(nonatomic, strong) NSString *BigImgUrl;
-@property(nonatomic, strong) NSString *SmallImgUrl;
-@property(nonatomic, strong) NSNumber *score;
-@property(nonatomic, strong) NSNumber *avgPrice;
-@property(nonatomic, strong) NSString *shopName;
+@property(strong, nonatomic) NSString *BigImgUrl;
+@property(strong, nonatomic) NSString *SmallImgUrl;
+@property(strong, nonatomic) NSNumber *score;
+@property(strong, nonatomic) NSNumber *avgPrice;
+@property(strong, nonatomic) NSString *shopName;
 
 @end

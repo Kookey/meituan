@@ -13,6 +13,4 @@
 //商店ID
 @property(nonatomic, strong) NSString *poiid;
 
-@property(nonatomic, strong) UITableView *tableView;
-
 @end

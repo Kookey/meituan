@@ -12,9 +12,6 @@
 @interface HotQueueViewController ()<UIWebViewDelegate>
 {
     UILabel *_titleLabel;
-    int _isFirstIn;
-    
-    //
     UIActivityIndicatorView *_activityView;
 }
 
@@ -35,7 +32,6 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _isFirstIn = 0;
     
     [self setNav];
     [self initViews];
@@ -43,7 +39,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)setNav{
@@ -74,8 +69,7 @@
 }
 
 -(void)initViews{
-    
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, screen_width, screen_height-64)];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, NAVIGATIONBAR_HEIGHT, screen_width, screen_height-NAVIGATIONBAR_HEIGHT)];
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
@@ -93,14 +87,11 @@
 }
 
 -(void)OnBackBtn:(UIButton *)sender{
-    NSLog(@"_isFirstIn:%d",_isFirstIn);
-    if (_isFirstIn <= 1) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        _isFirstIn = _isFirstIn - 2;
-        [self.webView goBack];
-    }
-
+  if ([self.webView canGoBack]) {
+    [self.webView goBack];
+  } else {
+    [self.navigationController popViewControllerAnimated:YES];
+  }
 }
 
 
@@ -127,21 +118,6 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     [_activityView startAnimating];
-    _isFirstIn++;
-    
-    NSLog(@"In:%d",_isFirstIn);
     return YES;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

@@ -26,6 +26,9 @@
 // 4.屏幕大小尺寸
 #define screen_width [UIScreen mainScreen].bounds.size.width
 #define screen_height [UIScreen mainScreen].bounds.size.height
+#define STATUS_BAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
+#define NAVIGATIONBAR_HEIGHT 64
+#define TABBAR_HEIGHT 49
 
 //重新设定view的Y值
 #define setFrameY(view, newY) view.frame = CGRectMake(view.frame.origin.x, newY, view.frame.size.width, view.frame.size.height)

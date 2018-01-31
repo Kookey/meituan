@@ -6,17 +6,13 @@
 //  Copyright (c) 2015年 jinzelu. All rights reserved.
 //
 
-#import <MAMapKit/MAMapKit.h>
+#import "BMKAnnotationView.h"
 #import "CustomCalloutView.h"
 #import "JZMAAroundAnnotation.h"
 
-@interface CustomAnnotationView : MAAnnotationView
+@interface CustomAnnotationView : BMKAnnotationView
 
 @property(nonatomic, strong) CustomCalloutView *calloutView;
 
-/*!
- @brief 关联的annotation
- */
-@property (nonatomic, strong) JZMAAroundAnnotation *jzAnnotation;
 
 @end

@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "JZMTBtnView.h"
 
+extern NSInteger const HomeMenuCellMenuHeight;
 
 @interface HomeMenuCell : UITableViewCell
 
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSMutableArray *)menuArray;
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSArray *)menus;
 
 @end

@@ -12,6 +12,6 @@
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSString *ID;
-@property(nonatomic, strong) NSString *title;
+@property(nonatomic, copy) NSString *title;
 
 @end

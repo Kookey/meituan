@@ -12,7 +12,7 @@
 @interface JZKindFilterCell : UITableViewCell
 
 
-@property(nonatomic, strong) JZMerCateGroupModel *groupM;
+@property(strong, nonatomic) JZMerCateGroupModel *groupM;
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withFrame:(CGRect)frame;
 

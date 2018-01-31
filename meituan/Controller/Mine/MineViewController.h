@@ -10,6 +10,4 @@
 
 @interface MineViewController : UIViewController
 
-@property(nonatomic, strong) UITableView *tableView;
-
 @end

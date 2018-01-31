@@ -20,15 +20,10 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        //
         _type = @"none";
         [self initViews];
     }
     return self;
-}
-
-- (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,15 +44,15 @@
     [self.contentView addSubview:yuyueImgV];
     
     //店名
-    self.shopNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 5, screen_width-100-80, 30)];
+    self.shopNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 5, screen_width-100, 30)];
     [self.contentView addSubview:self.shopNameLabel];
     
     //介绍
-    self.shopInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 30, screen_width-100-10, 45)];
+    self.shopInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 30, screen_width-100, 45)];
     self.shopInfoLabel.textColor = [UIColor lightGrayColor];
     self.shopInfoLabel.font = [UIFont systemFontOfSize:13];
     self.shopInfoLabel.numberOfLines = 2;
-    self.shopInfoLabel.lineBreakMode = UILineBreakModeWordWrap|UILineBreakModeTailTruncation;
+    self.shopInfoLabel.lineBreakMode = NSLineBreakByWordWrapping|NSLineBreakByTruncatingTail;
     [self.contentView addSubview:self.shopInfoLabel];
     
     //价格
@@ -77,7 +72,8 @@
     self.shopInfoLabel.text = [NSString stringWithFormat:@"[%@]%@",recommendData.range,recommendData.title];
     NSString *priceStr = [NSString stringWithFormat:@"%d元",[recommendData.price intValue]];
     NSLog(@"%@",priceStr);
-    CGSize labelSize = [priceStr sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(200, 20) lineBreakMode:NSLineBreakByWordWrapping];
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
+    CGSize labelSize = [priceStr boundingRectWithSize:CGSizeMake(200, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
     self.priceLabel.text = priceStr;
     self.priceLabel.frame = CGRectMake(100, 75, labelSize.width+10, 20);
 }
@@ -92,7 +88,8 @@
     self.shopInfoLabel.text = [NSString stringWithFormat:@"[%@]%@",dealData.range,dealData.title];
     
     NSString *priceStr = [NSString stringWithFormat:@"%d元",[dealData.price intValue]];
-    CGSize labelSize = [priceStr sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(200, 20) lineBreakMode:NSLineBreakByWordWrapping];
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
+    CGSize labelSize = [priceStr boundingRectWithSize:CGSizeMake(200, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
     self.priceLabel.text = priceStr;
     self.priceLabel.frame = CGRectMake(100, 75, labelSize.width+10, 20);
 }

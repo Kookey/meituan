@@ -19,5 +19,7 @@
 @property (nonatomic, strong) NSString *phone;//电话
 @property (nonatomic, strong) NSString *featureMenus;//推荐菜
 
+@property (strong, nonatomic) NSNumber *lowestPrice;
+
 
 @end

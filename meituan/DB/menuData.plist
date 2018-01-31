@@ -50,7 +50,6 @@
 		<key>image</key>
 		<string>icon_homepage_takeoutCategory.png</string>
 	</dict>
-
 	<dict>
 		<key>title</key>
 		<string>美食</string>
@@ -96,6 +95,12 @@
 	<dict>
 		<key>title</key>
 		<string>外卖</string>
+		<key>image</key>
+		<string>icon_homepage_takeoutCategory.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>额外外卖</string>
 		<key>image</key>
 		<string>icon_homepage_takeoutCategory.png</string>
 	</dict>

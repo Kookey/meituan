@@ -14,12 +14,6 @@
 
 @implementation CustomAnnotationView
 
-
--(void)setJzAnnotation:(JZMAAroundAnnotation *)jzAnnotation{
-    _jzAnnotation = jzAnnotation;
-}
-
-
 - (void)setSelected:(BOOL)selected
 {
     [self setSelected:selected animated:NO];
@@ -39,10 +33,15 @@
         }
         
 //        self.calloutView.image = [UIImage imageNamed:@"bg_customReview_image_default"];
-        NSString *imgUrl = [_jzAnnotation.jzmaaroundM.imgurl stringByReplacingOccurrencesOfString:@"w.h" withString:@"104.63"];
+      if ([self.annotation isKindOfClass:[JZMAAroundAnnotation class]]) {
+        JZMAAroundAnnotation *jzAnnotation = (JZMAAroundAnnotation *) self.annotation;
+        NSString *imgUrl = [jzAnnotation.jzmaaroundM.imgurl stringByReplacingOccurrencesOfString:@"w.h" withString:@"104.63"];
         [self.calloutView.imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"bg_customReview_image_default"]];
-        self.calloutView.title = self.annotation.title;
-        self.calloutView.subtitle = self.annotation.subtitle;
+      }else {
+        self.calloutView.imageView.image = [UIImage imageNamed:@"bg_customReview_image_default"];
+      }
+      self.calloutView.title = self.annotation.title;
+      self.calloutView.subtitle = self.annotation.subtitle;
         
         
         
@@ -61,20 +60,5 @@
     }
     return inside;
 }
-
-
-
-
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

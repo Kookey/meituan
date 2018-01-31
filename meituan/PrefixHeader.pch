@@ -18,6 +18,8 @@
 #import "constant.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+Size.h"
+#import "UIView+MJExtension.h"
+#import "UIView+WXLExtension.h"
 
 
 #endif

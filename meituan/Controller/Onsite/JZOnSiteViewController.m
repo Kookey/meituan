@@ -114,7 +114,7 @@
         [_homeServiceArray removeAllObjects];
         NSMutableArray *dataArray = [responseBody objectForKey:@"data"];
         for (int i = 0; i < dataArray.count; ++i) {
-            HomeServiceModel *homeM = [HomeServiceModel objectWithKeyValues:dataArray[i]];
+            HomeServiceModel *homeM = [HomeServiceModel mj_objectWithKeyValues:dataArray[i]];
             [_homeServiceArray addObject:homeM];
         }
         
